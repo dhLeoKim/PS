@@ -1,3 +1,5 @@
+# dfs로 풀이
+
 import sys
 sys.stdin = open('sample_input.txt')
 
@@ -14,6 +16,7 @@ for case in range(T):
     visited = [[False]*N for _ in range(N)]
     stack = [now]
 
+    # dfs
     while stack:                                                                # dfs
         visited[now[0]][now[1]] = True
         delta = [[0, -1], [1, 0], [0, 1], [-1, 0]]
