@@ -12,12 +12,13 @@ public class boj11659 {
         int N = Integer.parseInt(stringTokenizer.nextToken());
         int M = Integer.parseInt(stringTokenizer.nextToken());
         long[] arr = new long[N+1];
+
         stringTokenizer = new StringTokenizer(bufferedReader.readLine());
         for(int i = 1; i < N+1; i++) {
             arr[i] = arr[i-1] + Integer.parseInt(stringTokenizer.nextToken());
         }
 
-        for(int m = 0; m < M; m++) {
+        for(int k = 0; k < M; k++) {
             stringTokenizer = new StringTokenizer(bufferedReader.readLine());
             int i = Integer.parseInt(stringTokenizer.nextToken());
             int j = Integer.parseInt(stringTokenizer.nextToken());
