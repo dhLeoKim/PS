@@ -39,6 +39,7 @@ public class boj1707 {
                 arr[v].add(u);
             }
 
+            // 그래프가 2개 이상일수도 있기에, 모든 노드에 대해서 검사 필요
             for (int i = 1; i < V+1; i++) {
                 if (ret) DFS(i);
                 else break;
