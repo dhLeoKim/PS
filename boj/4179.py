@@ -6,9 +6,14 @@ from collections import deque
 
 def bfs(start, fire):
     queue = deque()
-    queue.append((False, start[0], start[1], 1))
-    lst[start[0]][start[1]] = 1
-    visited[start[0]][start[1]] = '.'
+
+    si, sj = start[0], start[1]
+    queue.append((False, si, sj, 1))
+    lst[si][sj] = 1
+    visited[si][sj] = '.'
+
+    # if si == 0 or si == R-1 or sj == 0 or sj == C-1:
+    #     return 1
 
     for fi, fj in fire:
         queue.append((True, fi, fj, 1))
@@ -17,19 +22,19 @@ def bfs(start, fire):
     while queue:
         isFire, i, j, t = queue.popleft()
 
+        if not isFire and visited[i][j] != 'F' and (i == 0 or i == R-1 or j == 0 or j == C-1):
+            return t
+
         for k in range(4):
             ni, nj = i+di[k], j+dj[k]
             if 0 <= ni < R and 0 <= nj < C:
-                if isFire and visited[ni][nj] != '.':
+                if isFire and visited[ni][nj] == '.':
                     visited[ni][nj] = 'F'
                     queue.append((True, ni, nj, t+1))
-                elif not isFire and lst[ni][nj] == '.' and visited[ni][nj] != 'F':
+                elif not isFire and lst[ni][nj] == '.' and visited[ni][nj] != 'F' and visited[i][j] != 'F':
                     lst[ni][nj] = t+1
                     queue.append((False, ni, nj, t+1))
 
-                    if ni == 0 or ni == R-1 or nj == 0 or nj == C-1:
-                        return t+1
-                    
     return 'IMPOSSIBLE'
 
 
