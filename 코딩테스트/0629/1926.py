@@ -1,4 +1,5 @@
 import sys
+sys.stdin = open("input_1926.txt")
 input = sys.stdin.readline
 
 from collections import deque
