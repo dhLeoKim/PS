@@ -13,6 +13,7 @@ def dfs(k):
             dfs(i+1)
             arr.pop()
 
+
 N, M = map(int, input().split())
 
 arr = []

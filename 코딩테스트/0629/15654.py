@@ -13,6 +13,7 @@ def dfs(k):
             dfs(k+1)
             arr.pop()
 
+
 N, M = map(int, input().split())
 lst = list(map(int, input().split()))
 lst.sort()
